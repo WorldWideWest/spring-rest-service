@@ -6,21 +6,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "student")
 public class Student {
     
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id")
     private int id;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
+    @NotBlank(message = "The field can't be empty")
     private String firstName;
 
     @Column(name = "last_name")
+    @NotBlank(message = "The field can't be empty")
     private String lastName;
 
     @Column(name = "faculty")
+    @NotBlank(message = "The field can't be empty")
     private String faculty;
 
     public Student() {}
@@ -63,6 +67,11 @@ public class Student {
         this.faculty = faculty;
     }
 
+    @Override
+    public String toString() {
+        return "Student [faculty=" + faculty + ", firstName=" + firstName + ", id=" + id + ", lastName=" + lastName
+                + "]";
+    }
     
 
 }

@@ -2,6 +2,9 @@ package com.rest.student.demo.student;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +26,7 @@ public class StudentController {
 
     @GetMapping("/student")
     public List<Student> findAll(){
+        
         return studentService.findAll();
     }
 
@@ -32,8 +36,9 @@ public class StudentController {
     }
 
     @PostMapping("/student")
-    public void save(@RequestBody Student student){
+    ResponseEntity<String> save(@Valid @RequestBody Student student){
         studentService.save(student);
+        return ResponseEntity.ok("Student added");
     }
     
     @PutMapping("/student")
