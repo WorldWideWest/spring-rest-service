@@ -1,0 +1,12 @@
+DROP DATABASE IF EXISTS spring_api;
+CREATE DATABASE IF NOT EXISTS spring_api;
+
+USE spring_api;
+
+DROP TABLE IF EXISTS student;
+CREATE TABLE IF NOT EXISTS student(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    faculty VARCHAR(50) NOT NULL
+);
