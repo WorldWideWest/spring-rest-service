@@ -10,7 +10,7 @@ Before you run the application run the SQL script:
 Only part of configuration is to update the data in your  `application.properties` file:
 
 ```properties
-spring.datasource.url=jdbc:mysql://127.0.0.1:3306/car_repair?useSSL=false&serverTimezone=UTC
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/spring_api?useSSL=false&serverTimezone=UTC
 spring.datasource.username=username
 spring.datasource.password=password
 ```
